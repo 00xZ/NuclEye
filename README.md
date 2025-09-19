@@ -39,3 +39,32 @@ chmod +x NuclEye.sh emap.py injsqli.sh zql.sh
 # go install github.com/projectdiscovery/httpx/cmd/httpx@latest
 # go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 # ...install nuclei, katana, qsreplace, anew per their docs
+
+
+## Outputs / How results are stored
+
+NuclEye writes data to the repo root and the `output/` folder. Below is a quick map of the most important files and what they contain:
+
+- `output/targets.txt` — Domains extracted from discovered IPs (one domain per line).  
+- `output/database.txt` — `httpx` probe results for `targets.txt` (status codes, titles, etc.).  
+- `output/subs.txt` — Discovered subdomains (one per line).  
+- `output/httpx_subs_db.txt` — `httpx` hits for `subs.txt`.  
+- `output/spider_db.txt` — URLs discovered by the crawler (`katana`).  
+- `output/raw_db.txt` — Raw/append-only list of targets (preserves history).  
+- `all.txt` — Consolidated list of live endpoints (derived from `database.txt` filtered for 200 responses).  
+- `vuln.db` — Nuclei results (CVE and other templates) appended here.  
+- Temporary files used during runs: `ips.txt`, `output/spider_db_tmp.txt`, `output/sqli_xxx_tmp.txt` — these are removed by the script when finished.
+
+### Quick commands to inspect & tidy results
+```bash
+# view unique targets
+sort -u output/targets.txt | sed -n '1,50p'
+
+# view recent vulnerabilities (last 50 lines)
+tail -n 50 vuln.db
+
+# show only live URLs from the consolidated list
+cat all.txt | httpx -silent
+
+# dedupe and create a timestamped snapshot
+sort -u all.txt > snapshots/all-$(date +%F_%H%M).txt
