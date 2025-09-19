@@ -75,6 +75,9 @@ sort -u output/targets.txt | sed -n '1,50p'
 # view recent vulnerabilities (last 50 lines)
 tail -n 50 vuln.db
 
+# filter out spidered db for params to scan
+example for SSRF: cat spider_db.txt | grep "=http" | grep -v "wp" | qsreplace http://127.0.0.1/ | uniq | sort -u | anew ssrf_spidered
+
 # show only live URLs from the consolidated list
 cat all.txt | httpx -silent
 
