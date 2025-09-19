@@ -29,7 +29,7 @@ Also include any helper scripts referenced in the repo (`emap.py`, `injsqli.sh`,
 ## Install
 ```bash
 # clone
-git clone https://github.com/<your-username>/NuclEye.git
+git clone https://github.com/00xZ/NuclEye.git
 cd NuclEye
 
 # make scripts executable
