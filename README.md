@@ -9,6 +9,18 @@
 **Do not** run this tool against systems you do not own or do not have explicit, written permission to test. Unauthorized scanning or probing may be illegal. Use only in lab environments or with proper authorization and follow responsible disclosure practices.
 
 ---
+## ⚙️ Install NuclEye Tools (one-line)
+
+**Quick:** make the installer executable and run it.
+
+```bash
+# make executable
+chmod +x setup.sh
+
+# run the installer (may prompt for sudo for system installs)
+./setup.sh
+
+---
 
 ## Description
 NuclEye continuously discovers hosts, extracts domains, enumerates subdomains, probes HTTP endpoints, crawls sites, prepares simple injection payloads, and runs Nuclei templates to find vulnerabilities. Results are saved to the `output/` folder as plain text for review.
